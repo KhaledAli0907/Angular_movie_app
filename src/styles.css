@@ -8,3 +8,7 @@
 {
   background: #ffe353;
 }
+.btn:hover{
+  outline: 2px solid #ffe353;
+  background-color: transparent;
+}
