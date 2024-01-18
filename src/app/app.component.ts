@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { MovieServiceService } from './services/movie-service.service';
 import { PaginatorComponent } from './paginator/paginator.component';
+import { SearchComponent } from './search/search.component';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,7 @@ import { PaginatorComponent } from './paginator/paginator.component';
     HomeComponent,
     HeaderComponent,
     PaginatorComponent,
+    SearchComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

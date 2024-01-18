@@ -1,3 +1,18 @@
+<app-search></app-search>
+
 <p>home works!</p>
 <app-paginator (paginatorClick)="handlePaginatorClick($event)"></app-paginator>
 
+@if(movies){
+<p>{{ movies.results[0].original_title }}</p>
+<div class="container py-5">
+  <div class="row">
+    @for(movie of movies.results; track movie.id ; let i = $index){
+    <div class="col-lg-3 py-3 text-center">
+      <app-movie-card [movie]="movie"></app-movie-card>
+    </div>
+
+    }
+  </div>
+</div>
+}

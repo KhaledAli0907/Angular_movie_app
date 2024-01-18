@@ -11,3 +11,7 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.btn:hover{
+  outline: 2px solid #ffe353;
+  background-color: transparent;
+}
