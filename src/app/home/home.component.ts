@@ -20,50 +20,48 @@ import { Router, RouterLink } from '@angular/router';
 export class HomeComponent implements OnInit {
   constructor(private moviesService: MovieServiceService) {}
 
-  // @ViewChild(PaginatorComponent) paginator!: PaginatorComponent;
-
-  // recivedData: number = 0;
-  // movies: any;
-
-  // pageIndex: string = '';
-  // ngOnInit(): void {
-  //   // this.moviesService.getMoviesList().subscribe((movies) => {
-  //   //   this.movies = movies;
-  //   //   console.log(movies);
-  //   // });
-
-  // }
-
-  // ngAfterViewInit(): void {
-  //   //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
-  //   //Add 'implements AfterViewInit' to the class.
-  //   // if (this.paginator) {
-  //   this.paginator.sendIndexToParent.subscribe((data: string) => {
-  //     this.pageIndex = data;
-
-  //     this.moviesService.getMoviePage(this.pageIndex).subscribe((movies) => {
-  //       this.movies = movies;
-  //       console.log(`paginator: ${this.movies}`);
-  //     });
-  //   });
-  // }
-  // handlePaginatorClick(event: any): void {
-  //   this.recivedData = event.pageIndex;
-  // }
-
-  receivedData: string = '';
-
-  handlePaginatorClick(event: any): void {
-    // Do something with the page index (e.g., fetch data based on the page index)
-    this.receivedData = `Data for page index ${event}`;
-    console.log(this.receivedData);
-  }
+  pageNumber: number = 1;
   movies: any;
-  movie: any;
+
+  handlePaginatorClick(event: number): void {
+    /* recive data from child and update the movies array */
+    this.pageNumber = event;
+    this.moviesService
+      .getMoviePage(`${this.pageNumber}`)
+      .subscribe((response: any) => (this.movies = response));
+    console.log(`${this.pageNumber}`);
+  }
+
+  next() {
+    /* get the next page */
+    // if the user in page 5 reset to 1
+    if (this.pageNumber === 5) {
+      this.pageNumber = 1;
+      //update movies array
+      this.handlePaginatorClick(this.pageNumber);
+    } else {
+      this.pageNumber++;
+      this.handlePaginatorClick(this.pageNumber);
+    }
+  }
+
+  prev() {
+    /* get to the previous page */
+    // if user in page 1 reset to 5
+    if (this.pageNumber === 1) {
+      this.pageNumber = 5;
+      this.handlePaginatorClick(this.pageNumber);
+    } else {
+      this.pageNumber--;
+      this.handlePaginatorClick(this.pageNumber);
+    }
+  }
+
   ngOnInit(): void {
-    this.moviesService.getMoviePage('1').subscribe((movies: any) => {
-      this.movies = movies;
-      console.log(movies.results);
-    });
+    // this.moviesService.getMoviePage(`${this.receivedData}`).subscribe((movies: any) => {
+    //   this.movies = movies;
+    //   console.log(movies.results);
+    // });
+    this.handlePaginatorClick(this.pageNumber);
   }
 }

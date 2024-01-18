@@ -1,26 +1,31 @@
 import { AfterViewInit, Component, Output, EventEmitter } from '@angular/core';
-import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+// import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { ViewChild } from '@angular/core';
 import { OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-paginator',
   standalone: true,
-  imports: [MatPaginatorModule],
+  imports: [],
   templateUrl: './paginator.component.html',
   styleUrl: './paginator.component.css',
 })
 export class PaginatorComponent {
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  // @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   @Output() sendIndexToParent = new EventEmitter<number>();
+  @Output() sendNextSignal = new EventEmitter<string>();
+  @Output() sendPrevSignal = new EventEmitter<string>();
 
-  // pageIndex: string = '';
-  getCurrentPageIndex(): number {
-    return this.paginator.pageIndex;
+  sendPageValue(num: number): void {
+    this.sendIndexToParent.emit(num);
   }
 
-  handlePaginatorClick(event: any): void {
-    this.sendIndexToParent.emit(event.pageIndex + 1);
+  nextPage() {
+    this.sendNextSignal.emit();
+  }
+
+  prevPage() {
+    this.sendPrevSignal.emit();
   }
 }
