@@ -24,7 +24,7 @@ export class MovieServiceService {
 
   getMoviePage(pageNumber: string | undefined) {
     return this.http.get(
-      `https://api.themoviedb.org/3/trending/all/day?api_key=${this.api_key}&page=${pageNumber}`
+     ` https://api.themoviedb.org/3/trending/movie/day?api_key=${this.api_key}&page=${pageNumber}`
     );
   }
   getbaseurl(): string{

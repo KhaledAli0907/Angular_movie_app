@@ -3,3 +3,11 @@ img{
   object-fit: cover;
   border-radius: 0.5rem;
 }
+.content{
+  height: 70px;
+  justify-content: space-between;
+  padding-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
