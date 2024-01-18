@@ -1,14 +1,19 @@
 <section class="container py-5">
-  <div class="row m-0 ">
-    <div class="col-lg-6">
-      <img [src]="baseurl + movie.poster_path" [alt]="movie.title" class="img-fluid">
+  <div class="row m-0">
+    <div class="col-lg-4 ps-0">
+      <img class="img-fluid" [src]="baseurl + movie.poster_path" [alt]="movie.title">
     </div>
-    <div class="col-lg-6">
-      <div class="product-details">
-        <h3>{{movie.title}}</h3>
-        <small class="text-muted">{{movie.release_date}}</small>
-        <p>{{movie.description}}</p>
-      </div>
+    <div class="col-lg-8 my-3">
+      <h2>{{ movie.title}}</h2>
+      <small class="text-muted">{{movie.release_date}}</small>
+      <p>{{ movie.tagline}}</p>
+      <p>{{ movie.overview}}</p>
+      @for (item of movie.genres; track $index) {
+      <h2 class="btn bg-primaryColor me-2 rounded-pill mb-3">{{item.name}}</h2>
+      }
+      <p><strong>Duration:</strong> {{ movie.runtime }} Min.</p>
+      <p><strong>Language:</strong> {{ movie.languages }} </p>
+
     </div>
   </div>
 </section>

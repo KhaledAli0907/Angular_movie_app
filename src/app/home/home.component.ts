@@ -19,12 +19,11 @@ import { Router, RouterLink } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   constructor(private moviesService: MovieServiceService) {
-    
+
   }
 
   pageNumber: number = 1;
   movies: any;
-
   handlePaginatorClick(event: number): void {
     /* recive data from child and update the movies array */
     this.pageNumber = event;
