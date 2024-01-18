@@ -1,7 +1,4 @@
-import { AfterViewInit, Component, Output, EventEmitter } from '@angular/core';
-// import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
-import { ViewChild } from '@angular/core';
-import { OnInit } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-paginator',
@@ -11,8 +8,6 @@ import { OnInit } from '@angular/core';
   styleUrl: './paginator.component.css',
 })
 export class PaginatorComponent {
-  // @ViewChild(MatPaginator) paginator!: MatPaginator;
-
   @Output() sendIndexToParent = new EventEmitter<number>();
   @Output() sendNextSignal = new EventEmitter<string>();
   @Output() sendPrevSignal = new EventEmitter<string>();

@@ -58,10 +58,6 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.moviesService.getMoviePage(`${this.receivedData}`).subscribe((movies: any) => {
-    //   this.movies = movies;
-    //   console.log(movies.results);
-    // });
     this.handlePaginatorClick(this.pageNumber);
   }
 }
