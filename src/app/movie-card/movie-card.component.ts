@@ -14,8 +14,11 @@ export class MovieCardComponent implements OnInit {
   constructor(private moviesService: MovieServiceService) {}
   baseurl: any;
   movies: any;
+
   @Input()movie: any;
   ngOnInit(): void {
+  
    this.baseurl = this.moviesService.getbaseurl()
  }
+
 }

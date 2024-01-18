@@ -1,1 +1,14 @@
-<p>movie-details works!</p>
+<section class="container py-5">
+  <div class="row m-0 ">
+    <div class="col-lg-6">
+      <img [src]="baseurl + movie.poster_path" [alt]="movie.title" class="img-fluid">
+    </div>
+    <div class="col-lg-6">
+      <div class="product-details">
+        <h3>{{movie.title}}</h3>
+        <small class="text-muted">{{movie.release_date}}</small>
+        <p>{{movie.description}}</p>
+      </div>
+    </div>
+  </div>
+</section>
