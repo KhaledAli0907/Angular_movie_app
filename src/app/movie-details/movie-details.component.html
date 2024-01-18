@@ -15,5 +15,17 @@
       <p><strong>Language:</strong> {{ movie.original_language }} </p>
 
     </div>
+    <div class="col-12">
+      <div class="container py-5">
+        <div class="row">
+          @for(recommendation of recommendations; track movie.id ; let i = $index){
+            <div class="col-lg-2 py-3">
+              <app-movie-card></app-movie-card>
+         </div>
+    }
+    </div>
+    </div>
+       </div>
   </div>
+
 </section>
