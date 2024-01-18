@@ -1,23 +1,13 @@
 <app-search></app-search>
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 49022133e4c16e02b6eedc51c8dba278ce9a50e8
 @if(movies){
 <div class="container py-5">
   <div class="row">
     @for(movie of movies.results; track movie.id ; let i = $index){
-<<<<<<< HEAD
       <div class="col-lg-2 py-3">
         <app-movie-card [movie]="movie"></app-movie-card>
       </div>
-
-=======
-    <div class="col-lg-3 py-3 text-center">
-      <app-movie-card [movie]="movie"></app-movie-card>
-    </div>
->>>>>>> 49022133e4c16e02b6eedc51c8dba278ce9a50e8
     }
   </div>
 </div>
