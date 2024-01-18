@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class MovieServiceService {
   api_key = '63cf1594a209d23aeb283195b9971f64';
+  str: string = 'sdsdisji';
   constructor(private http: HttpClient) {}
 
   getMoviesList() {
