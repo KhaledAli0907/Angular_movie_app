@@ -30,6 +30,8 @@ export class HomeComponent implements OnInit {
       .getMoviePage(`${this.pageNumber}`)
       .subscribe((response: any) => (this.movies = response));
     console.log(`${this.pageNumber}`);
+    console.log(this.movies);
+    
   }
 
   next() {
