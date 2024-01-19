@@ -13,16 +13,16 @@ import { Router ,RouterLink} from '@angular/router';
   styleUrl: './movie-details.component.css'
 })
 export class MovieDetailsComponent implements OnInit {
-  movies: any;
-  @Output() movie: any;
   recommendations: any;
   baseurl :any;
+  movie: any;
+  movies: any;
   @Input() id?: string;
   constructor(private activatedRoute : ActivatedRoute , private moviesService: MovieServiceService){
     this.id = this.activatedRoute.snapshot.params['id']
     this.moviesService.getMovieDetaild(this.id).subscribe((response: any) => (this.movie = response));
     this.moviesService.getRecommendations(this.id).subscribe((response:any) => (this.recommendations = response));
-
+console.log(this.recommendations)
   }
 
   ngOnInit(){
