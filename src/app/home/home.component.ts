@@ -1,9 +1,12 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, NgModule, OnInit, ViewChild } from '@angular/core';
 import { MovieServiceService } from '../services/movie-service.service';
 import { PaginatorComponent } from '../paginator/paginator.component';
 import { SearchComponent } from '../search/search.component';
 import { MovieCardComponent } from '../movie-card/movie-card.component';
 import { RouterLink } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { SearchPipe } from '../search.pipe';
 
 @Component({
   selector: 'app-home',
@@ -13,17 +16,20 @@ import { RouterLink } from '@angular/router';
     MovieCardComponent,
     RouterLink,
     PaginatorComponent,
+    FormsModule,
+    CommonModule,
+    SearchPipe,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
 export class HomeComponent implements OnInit {
-  constructor(private moviesService: MovieServiceService) {
-
-  }
+  constructor(private moviesService: MovieServiceService) {}
 
   pageNumber: number = 1;
   movies: any;
+  searchText: string = '';
+
   handlePaginatorClick(event: number): void {
     /* recive data from child and update the movies array */
     this.pageNumber = event;
@@ -32,7 +38,6 @@ export class HomeComponent implements OnInit {
       .subscribe((response: any) => (this.movies = response));
     console.log(`${this.pageNumber}`);
     console.log(this.movies);
-    
   }
 
   next() {
@@ -62,6 +67,5 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.handlePaginatorClick(this.pageNumber);
-
   }
 }
