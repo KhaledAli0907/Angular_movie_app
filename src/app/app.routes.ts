@@ -11,6 +11,7 @@ export const routes: Routes = [
     {
         path: 'moviedetails/:id',
         component: MovieDetailsComponent,
+
     },
     {
         path: "**",

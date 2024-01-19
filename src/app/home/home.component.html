@@ -1,17 +1,19 @@
 <app-search></app-search>
 
 
-@if(movies){
+<!-- @if(movies){ -->
 <div class="container py-5">
   <div class="row">
     @for(movie of movies.results; track movie.id ; let i = $index){
       <div class="col-lg-2 py-3">
         <app-movie-card [movie]="movie"></app-movie-card>
       </div>
+    }@empty {
+      <span class="alert alert-info"> movi List empty</span>
     }
   </div>
 </div>
-}
+<!-- } -->
 
 <app-paginator
   (sendIndexToParent)="handlePaginatorClick($event)"

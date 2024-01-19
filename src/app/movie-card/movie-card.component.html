@@ -1,7 +1,7 @@
 
 
 
-  <a [routerLink]="['/moviedetails',movie.id]">
+  <a [routerLink]="['/moviedetails',movie.id]" (click)="sendMovi()">
     <img [src]="baseurl + movie.poster_path" class="img-fluid my-2">
       </a>
 

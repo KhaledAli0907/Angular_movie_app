@@ -15,16 +15,19 @@
       <p><strong>Language:</strong> {{ movie.original_language }} </p>
 
     </div>
+      <!-- @if (recommendations) { -->
+
     <div class="col-12 mt-4 border-top py-3 ">
       <h2>Recommendations</h2>
           <div class="row">
-            @for(recommendation of recommendations.results; track movie.id ; let i = $index){
+            @for(recommendation of recommendations.results; track recommendation.id ; let i = $index){
               <div class="col-lg-2 py-3">
-                <app-movie-card [movie]="recommendation"></app-movie-card>
+                <app-movie-card (emitMovi)="getMovi($event)" [movie]="recommendation"></app-movie-card>
               </div>
             }
           </div>
         </div>
-          </div>
+        <!-- } -->
+             </div>
 
 </section>
