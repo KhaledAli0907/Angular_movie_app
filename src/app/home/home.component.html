@@ -19,8 +19,8 @@
 
 @if(movies){
 <div class="container py-5">
-  <div class="row">
-    @for(movie of movies.results | search: searchText; track movie.id ; let i =
+  <div class="row" *ngIf="searchInputRef && searchInputRef.nativeElement.value !== ''; else elseBlock">
+    @for(movie of searchMovies.results | search: searchText; track movie.id ; let i =
     $index){
     <div class="col-lg-2 py-3">
       <app-movie-card [movie]="movie"></app-movie-card>
@@ -29,6 +29,17 @@
     <span class="alert alert-info"> movie List empty</span>
     }
   </div>
+  <ng-template class="row" #elseBlock>
+    @for(movie of movies.results | search: searchText; track movie.id ; let i =
+    $index){
+    <div class="col-lg-2 py-3">
+      <app-movie-card [movie]="movie"></app-movie-card>
+    </div>
+    }@empty {
+    <span class="alert alert-info"> movie List empty</span>
+    }
+  </ng-template>
+
 </div>
 }
 

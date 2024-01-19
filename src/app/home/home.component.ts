@@ -1,4 +1,5 @@
 import {
+  AfterViewInit,
   Component,
   ElementRef,
   NgModule,
@@ -29,7 +30,7 @@ import { SearchPipe } from '../search.pipe';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements AfterViewInit {
   constructor(private moviesService: MovieServiceService) {}
 
   @ViewChild('searchInput') searchInputRef!: ElementRef;
@@ -39,17 +40,14 @@ export class HomeComponent implements OnInit {
   searchText: string = '';
   searchMovies: any;
 
-  // isInputFocused(): boolean | undefined {
-  //   if (this.searchInputRef) {
-  //     return this.searchInputRef.nativeElement.isFocused;
-  //   }
-  //   return undefined;
+  // isInputFocused(): any {
   // }
 
   searchFocus(): void {
+    console.log(this.searchInputRef.nativeElement.value);
     this.moviesService
       .getSearchResults(this.searchText)
-      .subscribe((res) => (this.movies = res));
+      .subscribe((res) => (this.searchMovies = res));
   }
 
   handlePaginatorClick(event: number): void {
@@ -87,7 +85,8 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
     this.handlePaginatorClick(this.pageNumber);
+    this.searchFocus();
   }
 }
