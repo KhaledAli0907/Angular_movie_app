@@ -1,10 +1,11 @@
 import { Component, Input, OnInit, } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { MovieServiceService } from '../services/movie-service.service';
 @Component({
   selector: 'app-watchlist-card',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './watchlist-card.component.html',
   styleUrl: './watchlist-card.component.css'
 })
