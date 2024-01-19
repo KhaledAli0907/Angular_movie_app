@@ -1,1 +1,11 @@
-<p>watchlist works!</p>
+<div class="container py-5">
+  <div class="row">
+    @for(movie of movies.results; track movie.id ; let i = $index){
+      <div class="col-lg-2 py-3">
+        <app-watchlist-card [movie]="movie"></app-watchlist-card>
+      </div>
+    }@empty {
+      <span class="alert alert-info"> movi List empty</span>
+    }
+  </div>
+</div>

@@ -11,6 +11,7 @@ import { MovieServiceService } from '../services/movie-service.service';
 export class WatchlistCardComponent implements OnInit {
   constructor(private moviesService: MovieServiceService) {}
   baseurl: any;
+  movies: any;
   @Input()movie: any;
   ngOnInit(): void {
     // this.moviesService.getRecommendations(this.movie.id)
