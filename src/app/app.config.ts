@@ -14,6 +14,8 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes, withComponentInputBinding(), withViewTransitions()),
     provideHttpClient(withInterceptors([requestInterceptor])),
+    provideAnimations(),
+    provideAnimations(),
     provideAnimations()
 ],
 };

@@ -1,0 +1,14 @@
+.page-link {
+  color: inherit;
+  border: none;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  outline: none;
+}
+
+.page-link:hover, .page-link:focus
+{
+  background: transparent;
+  color: #ffe353;
+  box-shadow: none;
+}

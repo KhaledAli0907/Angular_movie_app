@@ -15,7 +15,12 @@ export class MovieServiceService {
       `https://api.themoviedb.org/3/movie/popular?api_key=${this.api_key}`
     );
   }
+  getRecommendations(id:string | undefined) {
+    return this.http.get(
 
+      `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${this.api_key}`
+    );
+  }
   getMovieDetaild(id: string | undefined) {
     return this.http.get(
       `https://api.themoviedb.org/3/movie/${id}?api_key=${this.api_key}`

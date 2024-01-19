@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
+import { WatchlistComponent } from './watchlist/watchlist.component';
+import { WatchlistCardComponent } from "./watchlist-card/watchlist-card.component";
 import { MovieServiceService } from './services/movie-service.service';
 import { PaginatorComponent } from './paginator/paginator.component';
 import { SearchComponent } from './search/search.component';
@@ -15,6 +17,8 @@ import { SearchComponent } from './search/search.component';
     RouterOutlet,
     HomeComponent,
     HeaderComponent,
+    WatchlistComponent,
+    WatchlistCardComponent,
     PaginatorComponent,
     SearchComponent,
   ],

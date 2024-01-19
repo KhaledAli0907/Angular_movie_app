@@ -3,7 +3,7 @@ import { MovieServiceService } from '../services/movie-service.service';
 import { PaginatorComponent } from '../paginator/paginator.component';
 import { SearchComponent } from '../search/search.component';
 import { MovieCardComponent } from '../movie-card/movie-card.component';
-import { Router, RouterLink } from '@angular/router';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -18,11 +18,12 @@ import { Router, RouterLink } from '@angular/router';
   styleUrl: './home.component.css',
 })
 export class HomeComponent implements OnInit {
-  constructor(private moviesService: MovieServiceService) {}
+  constructor(private moviesService: MovieServiceService) {
+
+  }
 
   pageNumber: number = 1;
   movies: any;
-
   handlePaginatorClick(event: number): void {
     /* recive data from child and update the movies array */
     this.pageNumber = event;
@@ -61,5 +62,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.handlePaginatorClick(this.pageNumber);
+
   }
 }
