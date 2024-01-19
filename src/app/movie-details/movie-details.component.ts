@@ -2,7 +2,6 @@ import { Component, Input ,OnInit, Output} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MovieServiceService } from '../services/movie-service.service';
 import { MovieCardComponent } from '../movie-card/movie-card.component';
-
 import { Router ,RouterLink} from '@angular/router';
 
 @Component({
@@ -22,7 +21,6 @@ export class MovieDetailsComponent implements OnInit {
     this.id = this.activatedRoute.snapshot.params['id']
     this.moviesService.getMovieDetaild(this.id).subscribe((response: any) => (this.movie = response));
     this.moviesService.getRecommendations(this.id).subscribe((response:any) => (this.recommendations = response));
-console.log(this.recommendations)
   }
 
   ngOnInit(){

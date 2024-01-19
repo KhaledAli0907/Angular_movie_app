@@ -3,7 +3,7 @@ import { MovieServiceService } from '../services/movie-service.service';
 import { PaginatorComponent } from '../paginator/paginator.component';
 import { SearchComponent } from '../search/search.component';
 import { MovieCardComponent } from '../movie-card/movie-card.component';
-import { Router, RouterLink } from '@angular/router';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
