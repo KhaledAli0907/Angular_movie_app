@@ -14,6 +14,7 @@ export class MovieCardComponent implements OnInit {
   constructor(private moviesService: MovieServiceService) {}
   baseurl: any;
   movies: any;
+  
   @Output() emitMovi: EventEmitter<any> = new EventEmitter();
   @Input() movie: any;
   ngOnInit(): void {

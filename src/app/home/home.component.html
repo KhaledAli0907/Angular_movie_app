@@ -3,6 +3,7 @@
   <p>Millions of movies, TV shows and people to discover. Explore now.</p>
   <form class="d-flex">
     <input
+      #searchInput
       class="form-control me-2"
       type="search"
       placeholder="Search"
@@ -10,11 +11,13 @@
       [(ngModel)]="searchText"
       [ngModelOptions]="{ standalone: true }"
     />
-    <button class="btn bg-primaryColor" type="submit">Search</button>
+    <button class="btn bg-primaryColor" type="submit" (click)="searchFocus()">
+      Search
+    </button>
   </form>
 </div>
 
-<!-- @if(movies){ -->
+@if(movies){
 <div class="container py-5">
   <div class="row">
     @for(movie of movies.results | search: searchText; track movie.id ; let i =
@@ -27,7 +30,7 @@
     }
   </div>
 </div>
-<!-- } -->
+}
 
 <app-paginator
   (sendIndexToParent)="handlePaginatorClick($event)"
