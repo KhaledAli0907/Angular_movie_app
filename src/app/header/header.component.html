@@ -31,7 +31,7 @@
             routerLink="watchlist"
             routerLinkActive="active_link"
             [routerLinkActiveOptions]="{ exact: true }"
-            ><i class="fa fa-heart"></i> Watchlist</a
+            ><i class="fa fa-heart"></i>{{WatchlistCounterService.getWishlist().length}} Watchlist</a
           >
         </li>
       </ul>

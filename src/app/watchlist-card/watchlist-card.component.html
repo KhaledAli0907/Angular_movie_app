@@ -1,16 +1,17 @@
 <div class="card p-3">
-<a [routerLink]="['/moviedetails',movie.id]">
-    <div class="row m-0">
-      <div class="col-4 ps-0">
+  <div class="row m-0">
+    <div class="col-4 ps-0"><a [routerLink]="['/moviedetails',movie.id]">
         <img class="img-fluid" [src]="baseurl + movie.poster_path" [alt]="movie.title">
-      </div>
-      <div class="col-8 ">
-        <h4>{{ movie.title}}</h4>
-        <small class="text-muted">{{movie.release_date}}</small>
-        <p>{{ movie.overview}}</p>
+      </a></div>
+
+    <div class="col-8 ">
+      <h4>{{ movie.title}}</h4>
+      <i class="fa fa-heart primaryColor" (click)="WatchlistCounterService.removeFromWishlist(movie)"></i>
+
+      <small class="text-muted">{{movie.release_date}}</small>
+      <p>{{ movie.overview}}</p>
 
 
-      </div>
-               </div>
-</a>
+    </div>
+  </div>
 </div>
