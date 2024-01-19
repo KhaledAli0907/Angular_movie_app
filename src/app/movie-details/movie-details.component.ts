@@ -23,10 +23,6 @@ export class MovieDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // const id = this.activatedRoute.snapshot.params['id']
-    // console.log(this.activatedRoute.snapshot.params["id"])
-    // console.log(this.movies.find((movie : any) => movie.id == this.id))
-    // this.movie = this.movies.find((movie: any) => movie.id == id)
     this.baseurl = this.moviesService.getbaseurl();
     this.id = this.activatedRoute.snapshot.params['id'];
     this.moviesService
