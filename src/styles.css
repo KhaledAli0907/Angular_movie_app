@@ -29,5 +29,5 @@ a{
 .form-control:focus
 {
   box-shadow: none;
-  border:1px solid#ffe353;
+  border: 1px solid#ffe353;
 }
