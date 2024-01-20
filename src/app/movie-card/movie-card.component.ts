@@ -15,8 +15,12 @@ export class MovieCardComponent implements OnInit {
   constructor(private moviesService: MovieServiceService ,public WatchlistCounterService :WatchlistCounterService) {}
   baseurl: any;
   movies: any;
+<<<<<<< HEAD
   counter = 0;
 
+=======
+  
+>>>>>>> 7d372e9da3a29624d1fd4a5101bd9a8bf40c376a
   @Output() emitMovi: EventEmitter<any> = new EventEmitter();
   @Input() movie: any;
   ngOnInit(): void {

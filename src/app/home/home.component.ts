@@ -1,4 +1,11 @@
-import { Component, NgModule, OnInit, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  NgModule,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { MovieServiceService } from '../services/movie-service.service';
 import { PaginatorComponent } from '../paginator/paginator.component';
 import { SearchComponent } from '../search/search.component';
@@ -23,12 +30,25 @@ import { SearchPipe } from '../search.pipe';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements AfterViewInit {
   constructor(private moviesService: MovieServiceService) {}
+
+  @ViewChild('searchInput') searchInputRef!: ElementRef;
 
   pageNumber: number = 1;
   movies: any;
   searchText: string = '';
+  searchMovies: any;
+
+  // isInputFocused(): any {
+  // }
+
+  searchFocus(): void {
+    console.log(this.searchInputRef.nativeElement.value);
+    this.moviesService
+      .getSearchResults(this.searchText)
+      .subscribe((res) => (this.searchMovies = res));
+  }
 
   handlePaginatorClick(event: number): void {
     /* recive data from child and update the movies array */
@@ -65,7 +85,8 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
     this.handlePaginatorClick(this.pageNumber);
+    this.searchFocus();
   }
 }
