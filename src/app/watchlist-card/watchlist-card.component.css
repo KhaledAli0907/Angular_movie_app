@@ -11,3 +11,6 @@ img
   border-radius: 1.5rem;
   border: none;
 }
+.fa:hover{
+  font-weight: 400!important;
+}

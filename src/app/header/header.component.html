@@ -1,20 +1,12 @@
+
 <nav class="navbar navbar-expand-lg navbar-light bg-primaryColor">
   <div class="container">
     <a class="navbar-brand" href="#"><h5>Movies App</h5></a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarColor03"
-      aria-controls="navbarColor03"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-      (click)="isCollapsed = !isCollapsed"
-    >
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
-    <div class="collapse navbar-collapse" id="navbarColor03">
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
           <a
@@ -27,11 +19,15 @@
         </li>
         <li class="nav-item">
           <a
-            class="nav-link"
+            class="nav-link position-relative"
             routerLink="watchlist"
             routerLinkActive="active_link"
             [routerLinkActiveOptions]="{ exact: true }"
-            ><i class="fa fa-heart"></i>{{WatchlistCounterService.getWishlist().length}} Watchlist</a
+            ><i class="fa fa-heart"></i>
+
+             Watchlist
+            <span class="position-absolute start-100 translate-middle badge bg-white text-dark rounded-circle">{{WatchlistCounterService.getWatchlist().length}}</span>
+</a
           >
         </li>
       </ul>

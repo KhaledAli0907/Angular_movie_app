@@ -1,12 +1,13 @@
 img{
   height: 300px;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 0.5rem;
+  width: 100%;
+  background: #f2f3f4;
 }
 .content{
   height: 70px;
-  justify-content: space-between;
-  padding-top: 0.5rem;
+  padding: 0.5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

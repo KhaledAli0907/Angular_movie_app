@@ -10,8 +10,7 @@ import { WatchlistCounterService } from '../watchlist-counter.service';
 })
 export class HeaderComponent {
 
-  public isCollapsed = true;
-  counter = 0
+  // counter = 0
   constructor( public WatchlistCounterService :WatchlistCounterService){}
   ngOnInit(){
     // this.WatchlistCounterService.getCounter().subscribe((value) => this.counter = value)

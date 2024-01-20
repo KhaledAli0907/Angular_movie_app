@@ -3,8 +3,12 @@
     <div class="col-lg-4 ps-0">
       <img class="img-fluid" [src]="baseurl + movie.poster_path" [alt]="movie.title">
     </div>
-    <div class="col-lg-8  ">
-      <h2>{{ movie.title}}</h2>
+    <div class="col-lg-8 py-3">
+      <div class="d-flex justify-content-between">
+        <h2>{{ movie.title}}</h2>
+        <a (click)="toggleWatchlist()">
+          <i class="fa-regular fa-heart primaryColor fs-3" [class.fill]="WatchlistCounterService.isInWatchlist(movie)"></i>
+        </a>      </div>
       <small class="text-muted">{{movie.release_date}}</small>
       <p>{{ movie.tagline}}</p>
       <p>{{ movie.overview}}</p>

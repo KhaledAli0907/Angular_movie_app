@@ -10,9 +10,9 @@
         (click)="increaseCounter()"></i>
         <i class="fa fa-heart"
         (click)="decreaseCounter()"></i> -->
-        <button (click)="toggleWishlist()">
-          <i class="fa fa-heart" [class.filled]="WatchlistCounterService.isInWishlist(movie)"></i>
-        </button>
+        <a (click)="toggleWatchlist()">
+          <i class="fa-regular fa-heart primaryColor" [class.fill]="WatchlistCounterService.isInWatchlist(movie)"></i>
+        </a>
         </div>
       </div>
 

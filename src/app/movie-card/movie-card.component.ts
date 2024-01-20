@@ -36,11 +36,12 @@ export class MovieCardComponent implements OnInit {
 //   decreaseCounter(){
 //     this.WatchlistCounterService.setCounter(this.counter -1)
 //   }
-  toggleWishlist(): void {
-    if (this.WatchlistCounterService.isInWishlist(this.movie)) {
-      this.WatchlistCounterService.removeFromWishlist(this.movie);
+  toggleWatchlist(): void {
+    if (this.WatchlistCounterService.isInWatchlist(this.movie)) {
+      this.WatchlistCounterService.removeFromWatchlist(this.movie);
     } else {
-      this.WatchlistCounterService.addToWishlist(this.movie);
+      this.WatchlistCounterService.addToWatchlist(this.movie);
+      
     }
   }
 }

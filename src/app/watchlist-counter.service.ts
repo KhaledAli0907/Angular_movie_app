@@ -14,23 +14,23 @@ export class WatchlistCounterService {
 // setCounter(newCounterVal : number){
 //   this.counter.next(newCounterVal);
 // }
-  private wishlist: Movie[] = [];
+  private Watchlist: Movie[] = [];
 
-  addToWishlist(movie: Movie): void {
-    if (!this.isInWishlist(movie)) {
-      this.wishlist.push(movie);
+  addToWatchlist(movie: Movie): void {
+    if (!this.isInWatchlist(movie)) {
+      this.Watchlist.push(movie);
     }
   }
 
-  removeFromWishlist(movie: Movie): void {
-    this.wishlist = this.wishlist.filter((m) => m.id !== movie.id);
+  removeFromWatchlist(movie: Movie): void {
+    this.Watchlist = this.Watchlist.filter((m) => m.id !== movie.id);
   }
 
-  getWishlist(): Movie[] {
-    return this.wishlist;
+  getWatchlist(): Movie[] {
+    return this.Watchlist;
   }
 
-  isInWishlist(movie: Movie): boolean {
-    return this.wishlist.some((m) => m.id === movie.id);
+  isInWatchlist(movie: Movie): boolean {
+    return this.Watchlist.some((m) => m.id === movie.id);
   }
 }

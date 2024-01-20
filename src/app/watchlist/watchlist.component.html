@@ -1,17 +1,18 @@
 <div class="container py-5">
   <div class="row">
-    @for(movie of WatchlistCounterService.getWishlist(); track movie.id ; let i = $index){
-      <div class="col-lg-6 py-3">
-        <app-watchlist-card [movie]="movie"></app-watchlist-card>
-      </div>
+    @for(movie of WatchlistCounterService.getWatchlist(); track movie.id ; let i = $index){
+    <div class="col-lg-6 py-3">
+      <app-watchlist-card [movie]="movie"></app-watchlist-card>
+    </div>
     }
-     @empty {  <div class="col-12 ">
-    <div class="empty my-5 text-center">
-    <img src="../../assets/images/heart-slash.png">
-    <p class="fs-3">No Movies in watch list </p>
-    <button class="btn bg-primaryColor">Back To Home</button>
-   </div>
+    @empty {
+    <div class="col-12 ">
+      <div class="empty my-5 text-center">
+        <img src="../../assets/images/heart-slash.png">
+        <p class="fs-3">No Movies in watch list </p>
+        <button class="btn bg-primaryColor" [routerLink]="['']">Back To Home</button>
       </div>
+    </div>
 
     }
   </div>

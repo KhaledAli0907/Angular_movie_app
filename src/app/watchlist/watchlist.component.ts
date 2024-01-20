@@ -21,6 +21,6 @@ export class WatchlistComponent implements OnInit {
 
   }
   removeFromWishlist(movie: any): void {
-    this.WatchlistCounterService.removeFromWishlist(movie);
+    this.WatchlistCounterService.removeFromWatchlist(movie);
   }
 }

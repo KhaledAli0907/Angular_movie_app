@@ -5,12 +5,14 @@
       </a></div>
 
     <div class="col-8 ">
-      <h4>{{ movie.title}}</h4>
-      <i class="fa fa-heart primaryColor" (click)="WatchlistCounterService.removeFromWishlist(movie)"></i>
-
+      <div class="d-flex justify-content-between">
+        <h4>{{ movie.title}}</h4>
+        <i class="fa fa-heart primaryColor fs-3" (click)="WatchlistCounterService.removeFromWatchlist(movie)"></i>
+      </div>
+      
       <small class="text-muted">{{movie.release_date}}</small>
       <p>{{ movie.overview}}</p>
-
+      <a class="btn bg-primaryColor rounded-pill" [routerLink]="['/moviedetails',movie.id]">View Movie <i class="fas fa-angle-double-right"></i></a>
 
     </div>
   </div>
