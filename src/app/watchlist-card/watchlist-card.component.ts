@@ -3,11 +3,12 @@ import { ActivatedRoute } from '@angular/router';
 import { RouterLink } from '@angular/router';
 import { MovieServiceService } from '../services/movie-service.service';
 import { WatchlistCounterService } from '../watchlist-counter.service';
+import { ViewMorePipe } from '../view-more.pipe';
 
 @Component({
   selector: 'app-watchlist-card',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, ViewMorePipe],
   templateUrl: './watchlist-card.component.html',
   styleUrl: './watchlist-card.component.css'
 })

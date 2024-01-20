@@ -16,8 +16,5 @@
 </div>
 }
 
-<app-paginator
-  (sendIndexToParent)="handlePaginatorClick($event)"
-  (sendNextSignal)="next()"
-  (sendPrevSignal)="prev()"
-></app-paginator>
+<app-paginator (sendIndexToParent)="handlePaginatorClick($event)" (sendNextSignal)="next()"
+  (sendPrevSignal)="prev()"></app-paginator>

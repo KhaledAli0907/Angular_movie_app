@@ -11,25 +11,11 @@
       <div class="d-flex justify-content-between">
         <h2>{{ movie.title }}</h2>
         <a (click)="toggleWatchlist()">
-          <i
-            class="fa-regular fa-heart primaryColor fs-3"
-            [class.fill]="WatchlistCounterService.isInWatchlist(movie)"
-          ></i>
-        </a>
-      </div>
-      <small class="text-muted">{{ movie.release_date }}</small>
-      <p>{{ movie.tagline }}</p>
-      <!-- stars -->
-      <p #rating>
-        @for(star of stars; track star){
-        <i class="fa-solid fa-star"></i>
-        } @for(star of white; track star){
-        <i class="fa-regular fa-star"></i>
-        }
-        <span id="vote_count">{{ movie.vote_count }}</span>
-      </p>
-      <!-- discreption -->
-      <p>{{ movie.overview }}</p>
+          <i class="fa-regular fa-heart primaryColor fs-3" [class.fill]="WatchlistCounterService.isInWatchlist(movie)"></i>
+        </a>      </div>
+      <small class="text-muted">{{movie.release_date}}</small>
+      <p>{{ movie.tagline}}</p>
+      <p>{{ movie.overview}}</p>
       @for (item of movie.genres; track $index) {
       <p class="py-2 px-3 me-2 rounded-pill d-inline-block bg-primaryColor">
         {{ item.name }}
@@ -51,22 +37,19 @@
 
     <div class="col-12 mt-4 border-top py-3">
       <h2>Recommendations</h2>
-      <div class="row">
-        @for(recommendation of recommendations.results; track recommendation.id
-        ; let i = $index){
-        <div class="col-lg-2 py-3">
-          <app-movie-card
-            (emitMovi)="getMovi($event)"
-            [movie]="recommendation"
-          ></app-movie-card>
+          <div class="row">
+            @for(recommendation of recommendations.results; track recommendation.id ; let i = $index){
+              <div class="col-lg-2 py-3">
+                <app-movie-card (emitMovi)="getMovi($event)" [movie]="recommendation"></app-movie-card>
+              </div>
+            }@empty {
+              <div class="alert alert-warning col-12 text-center" role="alert">
+                THERE IS NO RECOMMENTATIONS DATA FOR THIS MOVIE
+              </div>
+            }
+          </div>
         </div>
-        }@empty {
-        <div class="alert alert-warning col-12 text-center" role="alert">
-          THERE IS NO RECOMMENTATIONS DATA FOR THIS MOVIE
-        </div>
-        }
-      </div>
-    </div>
-    <!-- } -->
-  </div>
+        <!-- } -->
+             </div>
+
 </section>
