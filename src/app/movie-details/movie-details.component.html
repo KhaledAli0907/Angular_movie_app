@@ -7,8 +7,10 @@
       <div class="d-flex justify-content-between">
         <h2>{{ movie.title}}</h2>
         <a (click)="toggleWatchlist()">
-          <i class="fa-regular fa-heart primaryColor fs-3" [class.fill]="WatchlistCounterService.isInWatchlist(movie)"></i>
-        </a>      </div>
+          <i class="fa-regular fa-heart primaryColor fs-3"
+            [class.fill]="WatchlistCounterService.isInWatchlist(movie)"></i>
+        </a>
+      </div>
       <small class="text-muted">{{movie.release_date}}</small>
       <p>{{ movie.tagline}}</p>
       <p>{{ movie.overview}}</p>
@@ -19,23 +21,23 @@
       <p><strong>Language:</strong> {{ movie.original_language }} </p>
 
     </div>
-      <!-- @if (recommendations) { -->
+    <!-- @if (recommendations) { -->
 
     <div class="col-12 mt-4 border-top py-3 ">
       <h2>Recommendations</h2>
-          <div class="row">
-            @for(recommendation of recommendations.results; track recommendation.id ; let i = $index){
-              <div class="col-lg-2 py-3">
-                <app-movie-card (emitMovi)="getMovi($event)" [movie]="recommendation"></app-movie-card>
-              </div>
-            }@empty {
-              <div class="alert alert-warning col-12 text-center" role="alert">
-                THERE IS NO RECOMMENTATIONS DATA FOR THIS MOVIE
-              </div>
-            }
-          </div>
+      <div class="row">
+        @for(recommendation of recommendations.results; track recommendation.id ; let i = $index){
+        <div class="col-lg-2 py-3">
+          <app-movie-card (emitMovi)="getMovi($event)" [movie]="recommendation"></app-movie-card>
         </div>
-        <!-- } -->
-             </div>
+        }@empty {
+        <div class="alert alert-warning col-12 text-center" role="alert">
+          THERE IS NO RECOMMENTATIONS DATA FOR THIS MOVIE
+        </div>
+        }
+      </div>
+    </div>
+    <!-- } -->
+  </div>
 
 </section>

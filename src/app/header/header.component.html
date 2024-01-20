@@ -1,34 +1,27 @@
-
 <nav class="navbar navbar-expand-lg navbar-light bg-primaryColor">
   <div class="container">
-    <a class="navbar-brand" href="#"><h5>Movies App</h5></a>
+    <a class="navbar-brand" href="#">
+      <h5>Movies App</h5>
+    </a>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a
-            class="nav-link"
-            routerLink="/"
-            routerLinkActive="active_link"
-            [routerLinkActiveOptions]="{ exact: true }"
-            >Movies</a
-          >
+          <a class="nav-link" routerLink="/" routerLinkActive="active_link"
+            [routerLinkActiveOptions]="{ exact: true }">Movies</a>
         </li>
         <li class="nav-item">
-          <a
-            class="nav-link position-relative"
-            routerLink="watchlist"
-            routerLinkActive="active_link"
-            [routerLinkActiveOptions]="{ exact: true }"
-            ><i class="fa fa-heart"></i>
+          <a class="nav-link position-relative" routerLink="watchlist" routerLinkActive="active_link"
+            [routerLinkActiveOptions]="{ exact: true }"><i class="fa fa-heart"></i>
 
-             Watchlist
-            <span class="position-absolute start-100 translate-middle badge bg-white text-dark rounded-circle">{{WatchlistCounterService.getWatchlist().length}}</span>
-</a
-          >
+            Watchlist
+            <span
+              class="position-absolute start-100 translate-middle badge bg-white text-dark rounded-circle">{{WatchlistCounterService.getWatchlist().length}}</span>
+          </a>
         </li>
       </ul>
     </div>

@@ -12,7 +12,8 @@
 
       <small class="text-muted">{{movie.release_date}}</small>
       <p>{{ movie.overview | viewMore : 20}}</p>
-      <a class="btn bg-primaryColor rounded-pill" [routerLink]="['/moviedetails',movie.id]">View Movie <i class="fas fa-angle-double-right"></i></a>
+      <a class="btn bg-primaryColor rounded-pill" [routerLink]="['/moviedetails',movie.id]">View Movie <i
+          class="fas fa-angle-double-right"></i></a>
 
     </div>
   </div>
