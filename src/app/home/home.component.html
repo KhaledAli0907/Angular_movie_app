@@ -1,25 +1,12 @@
-<div class="container p-5 mt-3" id="searchCont">
-  <h2>Welcome to our movie app</h2>
-  <p>Millions of movies, TV shows and people to discover. Explore now.</p>
-  <form class="d-flex">
-    <input
-      class="form-control me-2"
-      type="search"
-      placeholder="Search"
-      aria-label="Search"
-      [(ngModel)]="searchText"
-      [ngModelOptions]="{ standalone: true }"
-    />
-    <button class="btn bg-primaryColor" type="submit">Search</button>
-  </form>
-</div>
+<app-search></app-search>
 
 @if(movies){
 <div class="container py-5">
+  <h1>Trending Movies</h1>
   <div class="row">
     @for(movie of movies.results | search: searchText; track movie.id ; let i =
     $index){
-    <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6  py-3">
+    <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 py-3">
       <app-movie-card [movie]="movie"></app-movie-card>
     </div>
     }@empty {

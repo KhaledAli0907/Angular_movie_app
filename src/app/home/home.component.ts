@@ -1,11 +1,4 @@
-import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  NgModule,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MovieServiceService } from '../services/movie-service.service';
 import { PaginatorComponent } from '../paginator/paginator.component';
 import { SearchComponent } from '../search/search.component';
@@ -14,6 +7,7 @@ import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { SearchPipe } from '../search.pipe';
+import { MoviesObject } from '../movies-object';
 
 @Component({
   selector: 'app-home',
@@ -30,34 +24,23 @@ import { SearchPipe } from '../search.pipe';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
-export class HomeComponent implements AfterViewInit {
+export class HomeComponent implements OnInit {
   constructor(private moviesService: MovieServiceService) {}
 
-  @ViewChild('searchInput') searchInputRef!: ElementRef;
-
   pageNumber: number = 1;
-  movies: any;
+  movies!: MoviesObject;
   searchText: string = '';
-  searchMovies: any;
-
-  // isInputFocused(): any {
-  // }
-
-  searchFocus(): void {
-    console.log(this.searchInputRef.nativeElement.value);
-    this.moviesService
-      .getSearchResults(this.searchText)
-      .subscribe((res) => (this.searchMovies = res));
-  }
 
   handlePaginatorClick(event: number): void {
     /* recive data from child and update the movies array */
     this.pageNumber = event;
     this.moviesService
       .getMoviePage(`${this.pageNumber}`)
-      .subscribe((response: any) => (this.movies = response));
+      .subscribe((response: any) => {
+        this.movies = response;
+        console.log(this.movies);
+      });
     console.log(`${this.pageNumber}`);
-    console.log(this.movies);
   }
 
   next() {
@@ -85,8 +68,7 @@ export class HomeComponent implements AfterViewInit {
     }
   }
 
-  ngAfterViewInit(): void {
+  ngOnInit(): void {
     this.handlePaginatorClick(this.pageNumber);
-    this.searchFocus();
   }
 }
