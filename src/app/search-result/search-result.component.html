@@ -1,0 +1,34 @@
+<div class="container py-5">
+  <form class="d-flex" id="searchInput">
+    <input
+      #searchInput
+      class="form-control me-2"
+      type="search"
+      placeholder="Search"
+      aria-label="Search"
+      [(ngModel)]="searchText"
+      [ngModelOptions]="{ standalone: true }"
+    />
+    <button
+      class="btn bg-primaryColor"
+      type="submit"
+      (click)="searchClick(searchInput.value)"
+    >
+      Search
+    </button>
+  </form>
+  @if(movies){
+  <div class="container py-5">
+    <h6 #htmlSearch></h6>
+    <div class="row">
+      @for(movie of movies.results; track movie.id ; let i = $index){
+      <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 py-3">
+        <app-movie-card [movie]="movie"></app-movie-card>
+      </div>
+      }@empty {
+      <span class="alert alert-info"> movie List empty</span>
+      }
+    </div>
+  </div>
+  }
+</div>
