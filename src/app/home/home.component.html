@@ -2,7 +2,7 @@
 
 @if(movies){
 <div class="container py-5">
-  <h1>Trending Movies</h1>
+  <h2>Trending Movies</h2>
   <div class="row">
     @for(movie of movies.results | search: searchText; track movie.id ; let i =
     $index){
