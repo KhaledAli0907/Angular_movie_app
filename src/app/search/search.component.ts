@@ -1,9 +1,9 @@
-import { SearchService } from './../services/search.service';
 import { MovieServiceService } from './../services/movie-service.service';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MoviesObject } from '../movies-object';
 import { RouterLink } from '@angular/router';
+import { SearchService } from '../services/search.service';
 
 @Component({
   selector: 'app-search',

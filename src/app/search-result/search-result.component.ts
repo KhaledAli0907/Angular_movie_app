@@ -5,7 +5,6 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { SearchService } from '../services/search.service';
 import { MoviesObject } from '../movies-object';
 import { MovieCardComponent } from '../movie-card/movie-card.component';
 import { SearchPipe } from '../search.pipe';
@@ -13,6 +12,7 @@ import { SearchComponent } from '../search/search.component';
 import { MovieServiceService } from '../services/movie-service.service';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { SearchService } from '../services/search.service';
 
 @Component({
   selector: 'app-search-result',
