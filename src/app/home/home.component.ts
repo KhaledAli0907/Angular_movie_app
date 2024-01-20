@@ -30,7 +30,7 @@ import { SearchPipe } from '../search.pipe';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
-export class HomeComponent implements AfterViewInit {
+export class HomeComponent implements OnInit {
   constructor(private moviesService: MovieServiceService) {}
 
   @ViewChild('searchInput') searchInputRef!: ElementRef;
@@ -85,7 +85,7 @@ export class HomeComponent implements AfterViewInit {
     }
   }
 
-  ngAfterViewInit(): void {
+  ngOnInit(): void {
     this.handlePaginatorClick(this.pageNumber);
     this.searchFocus();
   }
