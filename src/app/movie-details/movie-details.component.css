@@ -1,6 +1,14 @@
-img{
+img {
   border-radius: 1.5rem;
   height: 100%;
   object-fit: cover;
   background: #f2f3f4;
+}
+
+#vote_count {
+  margin-left: 2rem;
+}
+
+#logo {
+  width: 15rem;
 }

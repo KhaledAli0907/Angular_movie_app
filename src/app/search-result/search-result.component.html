@@ -21,8 +21,7 @@
   <div class="container py-5">
     <h6 #htmlSearch></h6>
     <div class="row">
-      @for(movie of movies.results; track movie.id ;
-      let i = $index){
+      @for(movie of movies.results; track movie.id ; let i = $index){
       <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 py-3">
         <app-movie-card [movie]="movie"></app-movie-card>
       </div>

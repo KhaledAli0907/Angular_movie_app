@@ -1,41 +1,72 @@
 <section class="container py-5">
   <div class="row m-0">
     <div class="col-lg-4 ps-0">
-      <img class="img-fluid" [src]="baseurl + movie.poster_path" [alt]="movie.title">
+      <img
+        class="img-fluid"
+        [src]="baseurl + movie.poster_path"
+        [alt]="movie.title"
+      />
     </div>
     <div class="col-lg-8 py-3">
       <div class="d-flex justify-content-between">
-        <h2>{{ movie.title}}</h2>
+        <h2>{{ movie.title }}</h2>
         <a (click)="toggleWatchlist()">
-          <i class="fa-regular fa-heart primaryColor fs-3" [class.fill]="WatchlistCounterService.isInWatchlist(movie)"></i>
-        </a>      </div>
-      <small class="text-muted">{{movie.release_date}}</small>
-      <p>{{ movie.tagline}}</p>
-      <p>{{ movie.overview}}</p>
+          <i
+            class="fa-regular fa-heart primaryColor fs-3"
+            [class.fill]="WatchlistCounterService.isInWatchlist(movie)"
+          ></i>
+        </a>
+      </div>
+      <small class="text-muted">{{ movie.release_date }}</small>
+      <p>{{ movie.tagline }}</p>
+      <!-- stars -->
+      <p #rating>
+        @for(star of stars; track star){
+        <i class="fa-solid fa-star"></i>
+        } @for(star of white; track star){
+        <i class="fa-regular fa-star"></i>
+        }
+        <span id="vote_count">{{ movie.vote_count }}</span>
+      </p>
+      <!-- discreption -->
+      <p>{{ movie.overview }}</p>
       @for (item of movie.genres; track $index) {
-      <p class="py-2 px-3 me-2 rounded-pill d-inline-block bg-primaryColor">{{item.name}}</p>
+      <p class="py-2 px-3 me-2 rounded-pill d-inline-block bg-primaryColor">
+        {{ item.name }}
+      </p>
       }
       <p><strong>Duration:</strong> {{ movie.runtime }} Min.</p>
-      <p><strong>Language:</strong> {{ movie.original_language }} </p>
-
+      <p><strong>Language:</strong> {{ movie.original_language }}</p>
+      <p>
+        @for (comp of movie.production_companies; track comp){
+        @if(comp.logo_path){
+        <img [src]="baseurl + comp.logo_path" alt="company logo" id="logo" />
+        }}
+      </p>
+      <a [href]="movie.homepage" style="margin-left: 2rem; width: 10rem"
+        ><i class="fa-solid">HomePage</i></a
+      >
     </div>
-      <!-- @if (recommendations) { -->
+    <!-- @if (recommendations) { -->
 
-    <div class="col-12 mt-4 border-top py-3 ">
+    <div class="col-12 mt-4 border-top py-3">
       <h2>Recommendations</h2>
-          <div class="row">
-            @for(recommendation of recommendations.results; track recommendation.id ; let i = $index){
-              <div class="col-lg-2 py-3">
-                <app-movie-card (emitMovi)="getMovi($event)" [movie]="recommendation"></app-movie-card>
-              </div>
-            }@empty {
-              <div class="alert alert-warning col-12 text-center" role="alert">
-                THERE IS NO RECOMMENTATIONS DATA FOR THIS MOVIE
-              </div>
-            }
-          </div>
+      <div class="row">
+        @for(recommendation of recommendations.results; track recommendation.id
+        ; let i = $index){
+        <div class="col-lg-2 py-3">
+          <app-movie-card
+            (emitMovi)="getMovi($event)"
+            [movie]="recommendation"
+          ></app-movie-card>
         </div>
-        <!-- } -->
-             </div>
-
+        }@empty {
+        <div class="alert alert-warning col-12 text-center" role="alert">
+          THERE IS NO RECOMMENTATIONS DATA FOR THIS MOVIE
+        </div>
+        }
+      </div>
+    </div>
+    <!-- } -->
+  </div>
 </section>

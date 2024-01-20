@@ -14,22 +14,29 @@ import { WatchlistCounterService } from '../watchlist-counter.service';
 })
 export class MovieDetailsComponent implements OnInit {
   recommendations: any;
-  baseurl: any;
+  baseurl: string = '';
   movie: any;
   movies: any;
+  rating: number = 0;
+  stars: Array<number> = [];
+  white: number[] = [];
   @Input() id?: string;
   constructor(
     private activatedRoute: ActivatedRoute,
     private moviesService: MovieServiceService,
-    public WatchlistCounterService :WatchlistCounterService
+    public WatchlistCounterService: WatchlistCounterService
   ) {}
 
   ngOnInit() {
     this.baseurl = this.moviesService.getbaseurl();
     this.id = this.activatedRoute.snapshot.params['id'];
-    this.moviesService
-      .getMovieDetaild(this.id)
-      .subscribe((response: any) => (this.movie = response));
+    this.moviesService.getMovieDetaild(this.id).subscribe((response: any) => {
+      this.movie = response;
+      this.rating = Math.round(this.movie.vote_average / 2);
+      this.stars = Array.from({ length: this.rating }, (_, i) => i + 1);
+      this.white = Array(5 - this.stars.length);
+      console.log(this.movie);
+    });
     this.moviesService
       .getRecommendations(this.id)
       .subscribe((response: any) => (this.recommendations = response));
@@ -45,7 +52,8 @@ export class MovieDetailsComponent implements OnInit {
       this.WatchlistCounterService.removeFromWatchlist(this.movie);
     } else {
       this.WatchlistCounterService.addToWatchlist(this.movie);
-
     }
+
+    // hadnle starts
   }
 }
