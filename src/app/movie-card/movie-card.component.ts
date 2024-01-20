@@ -3,11 +3,12 @@ import { MovieServiceService } from '../services/movie-service.service';
 import { HomeComponent } from '../home/home.component';
 import { Router, RouterLink } from '@angular/router';
 import { WatchlistCounterService } from '../watchlist-counter.service';
+import { PerecentagePipe } from '../perecentage.pipe';
 
 @Component({
   selector: 'app-movie-card',
   standalone: true,
-  imports: [RouterLink, HomeComponent],
+  imports: [RouterLink, HomeComponent ,PerecentagePipe],
   templateUrl: './movie-card.component.html',
   styleUrl: './movie-card.component.css',
 })
@@ -41,7 +42,7 @@ export class MovieCardComponent implements OnInit {
       this.WatchlistCounterService.removeFromWatchlist(this.movie);
     } else {
       this.WatchlistCounterService.addToWatchlist(this.movie);
-      
+
     }
   }
 }

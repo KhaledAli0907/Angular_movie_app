@@ -26,3 +26,8 @@ a{
   font-weight: 900!important;
 
 }
+.form-control:focus
+{
+  box-shadow: none;
+  border:1px solid#ffe353;
+}

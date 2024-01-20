@@ -1,21 +1,25 @@
+<div class="card-img">
   <a [routerLink]="['/moviedetails',movie.id]" (click)="sendMovi()">
     <img [src]="baseurl + movie.poster_path" class="img-fluid my-2">
-      </a>
+  </a>
+</div>
 
-    <div class="content">
-      <p class="vote">{{movie.vote_average}}</p>
-        <h6>{{movie.title}}</h6>
-        <div class="d-flex justify-content-between align-items-center">
-        <small class="text-muted">{{movie.release_date}}</small>
 
-        <!-- <i class="fa-regular fa-heart"
+<div class="content">
+  <h6>{{movie.title}}</h6>
+  <div class="d-flex justify-content-between align-items-center">
+    <small class="text-muted">{{movie.release_date}}</small>
+    <!-- <i class="fa-regular fa-heart"
         (click)="increaseCounter()"></i>
         <i class="fa fa-heart"
         (click)="decreaseCounter()"></i> -->
-        <a (click)="toggleWatchlist()">
-          <i class="fa-regular fa-heart primaryColor" [class.fill]="WatchlistCounterService.isInWatchlist(movie)"></i>
-        </a>
-        </div>
-      </div>
+    <a (click)="toggleWatchlist()">
+      <i class="fa-regular fa-heart primaryColor" [class.fill]="WatchlistCounterService.isInWatchlist(movie)"></i>
+    </a>
+  </div>
+  <small>Vote Rating</small>
 
-
+  <div class="progress">
+    <div class="progress-bar progress-bar-striped bg-primaryColor h-10" role="progressbar" [style.width]=" movie.vote_average | perecentage" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{movie.vote_average | perecentage}}</div>
+  </div>
+</div>
