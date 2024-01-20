@@ -3,7 +3,6 @@
   <p>Millions of movies, TV shows and people to discover. Explore now.</p>
   <form class="d-flex">
     <input
-      #searchInput
       class="form-control me-2"
       type="search"
       placeholder="Search"
@@ -11,16 +10,14 @@
       [(ngModel)]="searchText"
       [ngModelOptions]="{ standalone: true }"
     />
-    <button class="btn bg-primaryColor" type="submit" (click)="searchFocus()">
-      Search
-    </button>
+    <button class="btn bg-primaryColor" type="submit">Search</button>
   </form>
 </div>
 
-@if(movies){
+<!-- @if(movies){ -->
 <div class="container py-5">
-  <div class="row" *ngIf="searchInputRef && searchInputRef.nativeElement.value !== ''; else elseBlock">
-    @for(movie of searchMovies.results | search: searchText; track movie.id ; let i =
+  <div class="row">
+    @for(movie of movies.results | search: searchText; track movie.id ; let i =
     $index){
     <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6  py-3">
       <app-movie-card [movie]="movie"></app-movie-card>
@@ -29,19 +26,8 @@
     <span class="alert alert-info"> movie List empty</span>
     }
   </div>
-  <ng-template class="row" #elseBlock>
-    @for(movie of movies.results | search: searchText; track movie.id ; let i =
-    $index){
-    <div class="col-lg-2 py-3">
-      <app-movie-card [movie]="movie"></app-movie-card>
-    </div>
-    }@empty {
-    <span class="alert alert-info"> movie List empty</span>
-    }
-  </ng-template>
-
 </div>
-}
+<!-- } -->
 
 <app-paginator
   (sendIndexToParent)="handlePaginatorClick($event)"
