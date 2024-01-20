@@ -11,4 +11,10 @@ img{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: relative;
+}
+.content .vote{
+  position: absolute;
+  top:-50%;
+  right: 15%;
 }
