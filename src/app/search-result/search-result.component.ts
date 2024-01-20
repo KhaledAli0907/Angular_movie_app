@@ -50,7 +50,6 @@ export class SearchResultComponent implements OnInit, AfterViewInit {
     //Add 'implements OnInit' to the class.
     this._searchService.getTerm().subscribe((res) => {
       this.movies = res;
-      console.log(this.movies);
     });
   }
 
@@ -58,10 +57,9 @@ export class SearchResultComponent implements OnInit, AfterViewInit {
     //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
     //Add 'implements AfterViewInit' to the class.
     const h6Elment: HTMLElement = this.htmlSearch.nativeElement;
-    console.log(h6Elment);
     this._searchService.getInput().subscribe((res: string) => {
       console.log('response' + res);
-      h6Elment.innerHTML = `<h4>Search Result: </h4> ${res}`;
+      h6Elment.innerHTML = `<strong>Search Result: </strong> ${res}`;
     });
   }
 }
