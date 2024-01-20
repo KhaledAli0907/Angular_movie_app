@@ -4,11 +4,13 @@
   margin-bottom: 1rem;
   font-size: 1.25rem;
   outline: none;
+  border-radius: 0.5rem;
 }
 
 .page-link:hover, .page-link:focus
 {
-  background: transparent;
-  color: #ffe353;
+  background: #ffe353;
   box-shadow: none;
+  border-radius: 0.5rem;
+
 }
