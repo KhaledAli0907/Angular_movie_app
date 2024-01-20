@@ -14,7 +14,7 @@
   </form>
 </div>
 
-<!-- @if(movies){ -->
+@if(movies){
 <div class="container py-5">
   <div class="row">
     @for(movie of movies.results | search: searchText; track movie.id ; let i =
@@ -27,7 +27,7 @@
     }
   </div>
 </div>
-<!-- } -->
+}
 
 <app-paginator
   (sendIndexToParent)="handlePaginatorClick($event)"
