@@ -1,19 +1,33 @@
 <section class="container py-5">
   <div class="row m-0">
     <div class="col-lg-4 ps-0">
-      <img class="movie-img img-fluid" [src]="baseurl + movie.poster_path" [alt]="movie.title" />
+      <img
+        class="movie-img img-fluid"
+        [src]="baseurl + movie.poster_path"
+        [alt]="movie.title"
+      />
     </div>
     <div class="col-lg-8 py-3">
       <div class="d-flex justify-content-between">
         <h2>{{ movie.title }}</h2>
         <a (click)="toggleWatchlist()">
-          <i class="fa-regular fa-heart primaryColor fs-3"
-            [class.fill]="WatchlistCounterService.isInWatchlist(movie)"></i>
+          <i
+            class="fa-regular fa-heart primaryColor fs-3"
+            [class.fill]="WatchlistCounterService.isInWatchlist(movie)"
+          ></i>
         </a>
       </div>
-      <small class="text-muted">{{movie.release_date}}</small>
-      <p>{{ movie.tagline}}</p>
-      <p>{{ movie.overview}}</p>
+      <small class="text-muted">{{ movie.release_date }}</small>
+      <p #rating>
+        @for(star of stars; track star){
+        <i class="fa-solid fa-star"></i>
+        } @for(star of white; track star){
+        <i class="fa-regular fa-star"></i>
+        }
+        <span id="vote_count">{{ movie.vote_count }}</span>
+      </p>
+      <p>{{ movie.tagline }}</p>
+      <p>{{ movie.overview }}</p>
       @for (item of movie.genres; track $index) {
       <p class="py-2 px-3 me-2 rounded-pill d-inline-block bg-primaryColor">
         {{ item.name }}
@@ -27,17 +41,22 @@
         <img [src]="baseurl + comp.logo_path" alt="company logo" class="logo" />
         }}
       </div>
-      <a [href]="movie.homepage" class="link rounded-pill"><i class="fa-solid">Website</i><i
-          class="fa-solid fa-link"></i></a>
+      <a [href]="movie.homepage" class="link rounded-pill"
+        ><i class="fa-solid">Website</i><i class="fa-solid fa-link"></i
+      ></a>
     </div>
     <!-- @if (recommendations) { -->
 
     <div class="col-12 mt-4 border-top py-3">
       <h2>Recommendations</h2>
       <div class="row">
-        @for(recommendation of recommendations.results; track recommendation.id ; let i = $index){
+        @for(recommendation of recommendations.results; track recommendation.id
+        ; let i = $index){
         <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 py-3">
-          <app-movie-card (emitMovi)="getMovi($event)" [movie]="recommendation"></app-movie-card>
+          <app-movie-card
+            (emitMovi)="getMovi($event)"
+            [movie]="recommendation"
+          ></app-movie-card>
         </div>
         }@empty {
         <div class="alert alert-warning col-12 text-center" role="alert">
@@ -48,5 +67,4 @@
     </div>
     <!-- } -->
   </div>
-
 </section>
